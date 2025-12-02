@@ -9,8 +9,8 @@ aarch64-linux-gnu-gcc -Os -nostdlib -ffreestanding -fno-stack-protector -c ./cli
 aarch64-linux-gnu-ld -Ttext=0x02000000 --entry=_start --no-dynamic-linker -nostdlib --gc-sections -o cli_loop.elf cli_loop.o
 
 Run:  
-fatload usb 0 0x01ff0000 cli_loop.elf  
-bootelf -p 0x01ff0000  
-
+fatload usb 0 0x01ff0000 cli_loop.elf   
+bootelf -p 0x01ff0000   
+(bootelf without parameters should also work)  
 
 Works on devices with "fatload" and "bootelf" commands available. I use it on Yandex TV Station (magritte) with Amlogic T3 CPU.
