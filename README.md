@@ -11,6 +11,10 @@ aarch64-linux-gnu-ld -Ttext=0x02000000 --entry=_start --no-dynamic-linker -nostd
 Run:  
 fatload usb 0 0x01ff0000 cli_loop.elf   
 bootelf -p 0x01ff0000   
-(bootelf without parameters should also work)  
+Or on new versions with UBIFS: 
+ubi part data  
+ubifsmount ubi0  
+ubifsload ${loadaddr} cli_loop.elf  
+bootelf  
 
-Works on devices with "fatload" and "bootelf" commands available. I use it on Yandex TV Station (magritte) with Amlogic T3 CPU.
+Works on devices with "fatload"/"ubifsload" and "bootelf" commands available. I use it on Yandex TV Station (magritte) with Amlogic T3 CPU and on some other models.
