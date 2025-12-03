@@ -11,7 +11,8 @@ aarch64-linux-gnu-ld -Ttext=0x02000000 --entry=_start --no-dynamic-linker -nostd
 Run:  
 fatload usb 0 0x01ff0000 cli_loop.elf   
 bootelf -p 0x01ff0000   
-Or on new versions with UBIFS: 
+
+Or on new versions with UBIFS:   
 ubi part data  
 ubifsmount ubi0  
 ubifsload ${loadaddr} cli_loop.elf  
